@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Peta Sebaran Tempat Pembuangan Sampah (TPS) Kota Bandung</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+        background-image: url('bantar_gebang.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #333;
+    }
+    :root {
+  --bg-light: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+  --bg-dark: #121212;
+  --card-light: #ffffff;
+  --card-dark: #1e1e1e;
+  --text-light: #333;
+  --text-dark: #f1f1f1;
+  --primary: #2e7d32;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.4s ease;
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+header {
+  background: linear-gradient(135deg, #2e7d32, #1c7ed6);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: var(--card-light);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+body.dark .card {
+  background: var(--card-dark);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  border-radius: 12px;
+}
+
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 999;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="toggle" onclick="toggleDark()">🌙 Dark Mode</div>
+
+<header>
+  <h1> Peta Sebaran Tempat Pembuangan Sampah (TPS) Kota Bandung</h1> 
+  <p> Visualisasi Spasial Pengelolaan Sampah Berbasis Web</p>
+</header>
+
+<section>
+  <div class="card">
+    <h2>Deskripsi</h2>
+    <p>
+      Website ini menampilkan peta sebaran Tempat Pembuangan Sampah (TPS)
+      di Kota Bandung menggunakan data terbuka dari GitHub dalam format CSV.
+      Visualisasi ini bertujuan mendukung pengelolaan lingkungan perkotaan
+      berbasis informasi spasial.   Peta sebaran Tempat Pembuangan Sampah (TPS) di Kota Bandung merupakan visualisasi spasial yang menampilkan lokasi-lokasi TPS yang tersebar di seluruh wilayah Kota Bandung. Peta ini dibuat dengan memanfaatkan data spasial dan sistem informasi geografis (SIG) untuk memberikan gambaran distribusi TPS secara akurat dan mudah dipahami. Hasil pemetaan diharapkan dapat menjadi media informasi yang mendukung pengelolaan persampahan perkotaan.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Peta Sebaran TPS</h2>
+    <iframe src="WEBGIS_TPS_INTERAKTIF (11).html"></iframe>
+  </div>
+</section>
+
+<footer>
+  © 2025 | Peta TPS Kota Bandung <br>
+  Dibuat Oleh : <br>
+  Raden Dzaki Tsabat Imani Wiyono <br>
+  Zayyanattumami <br>
+  Fikri Dwi Adnantya <br><br>
+</footer>
+
+<script>
+function toggleDark() {
+  document.body.classList.toggle("dark");
+}
+
+// Scroll animation
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+cards.forEach(card => observer.observe(card));
+</script>
+
+</body>
+</html>
